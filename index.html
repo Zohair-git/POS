@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../POS/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../POS/css/style.css">
+</head>
+<body style="background-color: yellowgreen;">
+
+
+
+    <div class="container-fluid">
+  <div class="row ">
+    <div class="col ">
+        <div class="card-group">
+            <div class="card">
+              <img src="../POS/coldrinks.jpg" class="card-img-top img_a" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">COLD DRINK</h5>
+                <p class="card-text"><button data-price="200" class="drinks">200Rs</button></p>
+              </div>
+              
+            </div>
+            <div class="card">
+              <img src="../POS/hotdrinks.jpg" class="card-img-top img_a" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">HOT DRINKS</h5>
+                <p class="card-text"><button data-price="400" class="drinks">400Rs</button></p>
+              </div>
+              
+            </div>
+            <div class="card">
+              <img src="../POS/tea.jpg" class="card-img-top img_a" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">TEA</h5>
+                <p class="card-text"><button data-price="250" class="drinks">250Rs</button> </p>
+              </div>
+            </div>
+
+            <div class="card">
+                <img src="../POS/Smoothie.jpg" class="card-img-top img_a" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">SMOOTHIES</h5>
+                  <p class="card-text"> <button data-price="600" class="drinks">600Rs</button></p>
+                </div>
+                
+              </div>
+          </div>
+
+  
+
+          <div class="card-group">
+            <div class="card">
+              <img src="../POS/cupcake.jpg" class="card-img-top img_a" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">CUP CAKE</h5>
+                <p class="card-text"> <button data-price="200" class="desserts">200Rs</button></p>
+              </div>
+              
+            </div>
+            <div class="card">
+              <img src="../POS/cereal.jpg" class="card-img-top img_a" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">CEREAL</h5>
+                <p class="card-text"> <button data-price="280" class="desserts">280Rs</button>
+                </p>
+              </div>
+              
+            </div>
+            <div class="card">
+              <img src="../POS/apple-pie-2.jpg" class="card-img-top img_a" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">APPLE PIE</h5>
+                <p class="card-text"> <button data-price="600" class="desserts">600Rs</button> </p>
+              </div>
+            </div>
+
+            <div class="card">
+                <img src="../POS/muffin.jpg" class="card-img-top img_a" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">MUFFIN</h5>
+                  <p class="card-text"> <button data-price="500" class="desserts">500Rs</button>
+                  </p>
+                </div>
+                
+              </div>
+          </div>
+      
+      
+     
+      
+      <br>
+
+     
+     
+      
+
+    </div>
+    <div class="col hh">
+      <h1>Add To Cart</h1>
+      <div class="toolbar">
+        <p>
+            
+                <h5>Cart items:</h5>
+                <h1 id="count">o</h1>
+                <h5>Price</h5>
+                <h1 id="sum">0</h1>
+            </a>
+        </p>
+    </div>
+    </div>
+  </div>
+    </div>
+    
+
+
+
+    <script >
+                 let count = 0;
+let sum = 0;
+let cart = {};
+
+updateCart();
+
+let btns = document.querySelectorAll(".col button");
+
+for (let i = 0; i < btns.length; i++) {
+    let btn = btns[i];
+    btn.addEventListener("click", add);
+
+}
+
+function add(event) {
+    let price = Number(event.target.dataset.price);
+    let title = event.target.dataset.title;
+    let id = event.target.dataset.id;
+
+if (id in cart) {
+    cart[id].qty++;
+} else {
+    let cartItem = {
+        title: title,
+        price: price,
+        qty: 1
+    };
+    cart[id] = cartItem
+}
+
+    count++;
+    sum += price;
+
+    console.log(cart);
+
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCart();
+}
+
+function updateCart() {
+    document.getElementById("sum").textContent = sum;
+    document.getElementById("count").textContent = count;
+    localStorage.setItem("sum", sum);
+    localStorage.setItem("count", count);
+}
+
+
+    </script>
+</body>
+</html>

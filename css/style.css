@@ -1,0 +1,54 @@
+.card{
+    margin: 20px;
+    background-color: bisque;
+    border: red solid 3px;
+    margin-left: 30px;
+    border-left: none;
+}
+.img_a{
+    height: 180px;
+    
+}
+.card-title{
+    text-align: center;
+}
+.card-text{
+    text-align: center;
+}
+.drinks{
+    padding: 20px;
+    background-color: violet;
+    font-weight: bolder;
+    border: red solid 3px;
+    border-radius: 4px;
+}
+.drinks:hover{
+    padding: 15px;
+    background-color: blueviolet;
+    font-weight: bold;
+    color: white;
+    margin-top: 5px;
+
+}
+.desserts{
+    padding: 20px;
+    background-color: violet;
+    font-weight: bolder;
+    border: red solid 3px;
+    border-radius: 4px;
+
+}
+.desserts:hover{
+    padding: 15px;
+    background-color: blueviolet;
+    font-weight: bold;
+    color: white;
+    margin-top: 5px;
+
+
+
+}
+.hh{
+    text-align: center;
+    margin-top: 50px;
+}
